@@ -43,6 +43,18 @@ Scan image
 ```
  docker scan mosheblumberg/mosheblumbergansible:latest
 ```
+
+Run the image with the attached directory 
+
+
+```
+mkdir /tmp/myhostsfiles
+touch /tmp/myhostsfiles/hosts.yml
+docker run -v /tmp/myhostsfiles:/data -it mosheblumberg/mosheblumbergansible:latest 
+```
+
+
+
 ## Reference  
 
 * [ansible-docker-example](https://github.com/ChristopherJHart/ansible-docker-example/tree/main)
