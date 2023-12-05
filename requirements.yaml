@@ -1,0 +1,6 @@
+---
+collections:
+  - confluent.platform
+  - ansible.posix
+  - community.general
+
