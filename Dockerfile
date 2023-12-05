@@ -8,6 +8,7 @@ RUN apt-get update; \
     apt-get install -y gcc python3; \
     apt-get install -y python3-pip; \
     apt-get install -y vim; \
+    apt-get install -y jq; \
     apt-get clean all
 RUN pip3 install --upgrade pip; \
     pip3 install -r requirements.txt; 
