@@ -36,7 +36,9 @@ docker push mosheblumberg/mosheblumbergansible:rc1
 
 Test your ansible 
 
+```
 ansible-playbook -i localhost testansiblelocal.yml
+```
 
 
 Scan image  
