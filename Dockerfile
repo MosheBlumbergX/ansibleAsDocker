@@ -11,14 +11,23 @@ RUN apt-get update; \
     apt-get install -y jq; \
     apt-get clean all
 RUN pip3 install --upgrade pip; \
-    pip3 install -r requirements.txt; 
+    pip3 install -r requirements.txt
 
+
+# for version 2.13.13
 # Copy Ansible dependency file inside container, then install dependencies using ansible-galaxy
-COPY requirements.yaml .
-RUN ansible-galaxy collection install -r requirements.yaml
+#COPY requirements.yaml .
+#RUN ansible-galaxy collection install -r requirements.yaml
+
+# for now use 2.11.2 and use no -r file 
+RUN ansible-galaxy collection install confluent.platform;\
+    ansible-galaxy collection install ansible.posix
+
+
 
 COPY testansiblelocal.yml .
 COPY readmeDocker.md .
+RUN ssh-keygen -t rsa -C "name@example.org"
 
 ## When Docker container is executed, execute the testansiblelocal.yml Ansible playbook
 #CMD ["ansible-playbook", "testansiblelocal.yml"]

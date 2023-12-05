@@ -18,7 +18,7 @@ docker image ls mosheblumberg/mosheblumbergansible
 Run Ansible inside a docker container
 
 ```
-docker run -it mosheblumberg/mosheblumbergansible:latest
+docker run --name cpansible -it mosheblumberg/mosheblumbergansible:latest
 ansible --version
 ```
 
@@ -52,9 +52,11 @@ Run the image with the attached directory
 ```
 mkdir /tmp/myhostsfiles
 touch /tmp/myhostsfiles/hosts.yml
-docker run -v /tmp/myhostsfiles:/data -it mosheblumberg/mosheblumbergansible:latest 
+docker run --name cpansible -v /tmp/myhostsfiles:/data -it mosheblumberg/mosheblumbergansible:latest 
 ```
 
+Save docker image 
+docker save  mosheblumberg/mosheblumbergansible > /tmp/mosheblumbergansible.tar
 
 
 ## Reference  
