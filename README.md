@@ -1,5 +1,8 @@
 # ansibleAsDocker
 
+Create docker image to use for cp ansible 
+
+
 ```
 docker build -t mosheblumberg/mosheblumbergansible:latest .
 ```
