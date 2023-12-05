@@ -42,9 +42,7 @@ Scan image
 ```
 ## Reference  
 
+* [ansible-docker-example](https://github.com/ChristopherJHart/ansible-docker-example/tree/main)
+* [Ansible Docker](https://hackmd.io/@the-ansible-book/B1y5tXers)
 * [how-to-build-and-execute-ansible-automation-with-docker](https://www.cbtnuggets.com/blog/technology/devops/how-to-build-and-execute-ansible-automation-with-docker)
-  * [git](https://www.cbtnuggets.com/blog/technology/devops/how-to-build-and-execute-ansible-automation-with-docker
-https://github.com/ChristopherJHart/ansible-docker-example/tree/main)
-
-
-[Ansible Docker](https://hackmd.io/@the-ansible-book/B1y5tXers)
+  * [git](https://www.cbtnuggets.com/blog/technology/devops/how-to-build-and-execute-ansible-automation-with-docker)
