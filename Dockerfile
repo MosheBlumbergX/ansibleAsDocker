@@ -27,7 +27,7 @@ RUN ansible-galaxy collection install confluent.platform;\
 
 COPY testansiblelocal.yml .
 COPY readmeDocker.md .
-RUN ssh-keygen -t rsa -C "name@example.org"
+COPY touchauthorized_keys.yml .
 
 ## When Docker container is executed, execute the testansiblelocal.yml Ansible playbook
 #CMD ["ansible-playbook", "testansiblelocal.yml"]
