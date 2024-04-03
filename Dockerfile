@@ -1,5 +1,6 @@
-ARG  CP_VERSION=7.5.3
 FROM --platform=linux/amd64 ubuntu:jammy
+
+ARG  CP_VERSION=7.5.3
 
 # Copy Python dependency file inside container, then install dependencies using pip.
 COPY requirements.txt .
@@ -23,12 +24,6 @@ RUN ansible-galaxy collection install confluent.platform:${CP_VERSION};\
 
 RUN ansible-galaxy collection install community-general-7.5.6.tar.gz
 
-
-
 COPY testansiblelocal.yml .
 COPY readmeDocker.md .
 COPY touchauthorized_keys.yml .
-
-
-
-
