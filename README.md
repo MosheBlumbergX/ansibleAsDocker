@@ -59,9 +59,22 @@ Save docker image
 docker save  mosheblumberg/mosheblumbergansible > /tmp/mosheblumbergansible.tar
 
 
+ docker load < /tmp/mosheblumbergansible.tar
+
+# Discovery 
+
+```
+
+
+PYTHONPATH=. python3 discovery/main.py \
+  --input /data/discovery.yml \
+  --verbosity 7
+```
+
 ## Reference  
 
 * [ansible-docker-example](https://github.com/ChristopherJHart/ansible-docker-example/tree/main)
 * [Ansible Docker](https://hackmd.io/@the-ansible-book/B1y5tXers)
 * [how-to-build-and-execute-ansible-automation-with-docker](https://www.cbtnuggets.com/blog/technology/devops/how-to-build-and-execute-ansible-automation-with-docker)
   * [git](https://www.cbtnuggets.com/blog/technology/devops/how-to-build-and-execute-ansible-automation-with-docker)
+
