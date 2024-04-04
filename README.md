@@ -1,5 +1,9 @@
 # ansibleAsDocker
 
+
+You must download community-general-7.5.6.tar.gz and put it in each dir. 
+https://galaxy.ansible.com/ui/repo/published/community/general/?version=7.5.6
+
 Create docker image to use for cp ansible 
 
 

@@ -1,0 +1,12 @@
+- name: Add new key to nodes
+  hosts: all
+  gather_facts: False
+  vars:
+    user: dba
+  tasks:
+    - name: New Private Key
+      lineinfile: 
+        path: /home/{{ user }}/.ssh/authorized_keys 
+        line: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
+        create: yes 
+        state: present
