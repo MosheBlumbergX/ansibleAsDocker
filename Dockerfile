@@ -1,6 +1,6 @@
 FROM --platform=linux/amd64 ubuntu:jammy
 
-ARG  CP_VERSION=7.5.3
+ARG  CP_VERSION=7.6.0
 
 # Copy Python dependency file inside container, then install dependencies using pip.
 COPY requirements.txt .
