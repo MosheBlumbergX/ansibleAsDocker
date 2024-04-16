@@ -59,9 +59,10 @@ touch /tmp/myhostsfiles/hosts.yml
 docker run --name cpansible -v /tmp/myhostsfiles:/data -it mosheblumberg/mosheblumbergansible:latest 
 ```
 
-Save docker image 
+Save docker image  
+```
 docker save  mosheblumberg/mosheblumbergansible > /tmp/mosheblumbergansible.tar
-
+```
 
  docker load < /tmp/mosheblumbergansible.tar
 
