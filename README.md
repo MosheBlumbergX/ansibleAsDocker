@@ -1,79 +1,15 @@
 # ansibleAsDocker
 
+A repository to host a docker image with: 
+* Ansible 
+* CP-Ansible
+* Discovery Service for migration between manual and automated install
 
-You must download community-general-7.5.6.tar.gz and put it in each dir. 
-https://galaxy.ansible.com/ui/repo/published/community/general/?version=7.5.6
+Please change to the desired branch. 
 
-Create docker image to use for cp ansible 
-
-
-```
-docker build -t mosheblumberg/mosheblumbergansible:latest .
-```
-
-Note the `.` (dot) at the end of command which denotes that Dockerfile is in current directory.
-
-Validate image creation by checking image list
-
-```
-docker image ls mosheblumberg/mosheblumbergansible
-```
-
-Run Ansible inside a docker container
-
-```
-docker run --name cpansible -it mosheblumberg/mosheblumbergansible:latest
-ansible --version
-```
-
-
-Push your Ansible image to Docker Hub
-
-```
-docker login
-docker push mosheblumberg/mosheblumbergansible:latest
-docker tag mosheblumberg/mosheblumbergansible mosheblumberg/mosheblumbergansible:rc1
-docker image ls mosheblumberg/mosheblumbergansible
-docker push mosheblumberg/mosheblumbergansible:rc1
-```
-
-
-Test your ansible 
-
-```
-ansible-playbook -i localhost testansiblelocal.yml
-```
-
-
-Scan image  
-```
- docker scan mosheblumberg/mosheblumbergansible:latest
-```
-
-Run the image with the attached directory 
-
-
-```
-mkdir /tmp/myhostsfiles
-touch /tmp/myhostsfiles/hosts.yml
-docker run --name cpansible -v /tmp/myhostsfiles:/data -it mosheblumberg/mosheblumbergansible:latest 
-```
-
-Save docker image 
-docker save  mosheblumberg/mosheblumbergansible > /tmp/mosheblumbergansible.tar
-
-
- docker load < /tmp/mosheblumbergansible.tar
-
-# Discovery 
-
-```
-
-
-PYTHONPATH=. python3 discovery/main.py \
-  --input /data/discovery.yml \
-  --verbosity 7
-```
+[CP Ansible Docs](https://docs.confluent.io/ansible/current/overview.html)  
+[cp-ansible](https://github.com/confluentinc/cp-ansible)  
+[cp-discovery](https://github.com/confluentinc/cp-discovery)  
 
 ## Reference  
 
@@ -81,4 +17,6 @@ PYTHONPATH=. python3 discovery/main.py \
 * [Ansible Docker](https://hackmd.io/@the-ansible-book/B1y5tXers)
 * [how-to-build-and-execute-ansible-automation-with-docker](https://www.cbtnuggets.com/blog/technology/devops/how-to-build-and-execute-ansible-automation-with-docker)
   * [git](https://www.cbtnuggets.com/blog/technology/devops/how-to-build-and-execute-ansible-automation-with-docker)
+
+
 
