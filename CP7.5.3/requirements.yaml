@@ -1,5 +1,0 @@
----
-collections:
-  - confluent.platform:7.5.3
-  - ansible.posix
-  - community.general
