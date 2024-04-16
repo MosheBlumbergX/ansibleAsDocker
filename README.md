@@ -8,7 +8,7 @@ Create docker image to use for cp ansible
 
 
 ```
-docker build -t mosheblumberg/mosheblumbergansible:latest .
+docker build -t mosheblumberg/mosheblumbergansible:ansible2.147CP7.6.0 .
 ```
 
 Note the `.` (dot) at the end of command which denotes that Dockerfile is in current directory.
@@ -22,7 +22,7 @@ docker image ls mosheblumberg/mosheblumbergansible
 Run Ansible inside a docker container
 
 ```
-docker run --name cpansible -it mosheblumberg/mosheblumbergansible:latest
+docker run --name cpansible -it mosheblumberg/mosheblumbergansible:ansible2.147CP7.6.0
 ansible --version
 ```
 
@@ -31,7 +31,7 @@ Push your Ansible image to Docker Hub
 
 ```
 docker login
-docker push mosheblumberg/mosheblumbergansible:latest
+docker push mosheblumberg/mosheblumbergansible:ansible2.147CP7.6.0
 docker tag mosheblumberg/mosheblumbergansible mosheblumberg/mosheblumbergansible:rc1
 docker image ls mosheblumberg/mosheblumbergansible
 docker push mosheblumberg/mosheblumbergansible:rc1
@@ -47,7 +47,7 @@ ansible-playbook -i localhost testansiblelocal.yml
 
 Scan image  
 ```
- docker scan mosheblumberg/mosheblumbergansible:latest
+ docker scan mosheblumberg/mosheblumbergansible:ansible2.147CP7.6.0
 ```
 
 Run the image with the attached directory 
@@ -56,14 +56,20 @@ Run the image with the attached directory
 ```
 mkdir /tmp/myhostsfiles
 touch /tmp/myhostsfiles/hosts.yml
-docker run --name cpansible -v /tmp/myhostsfiles:/data -it mosheblumberg/mosheblumbergansible:latest 
+docker run --name cpansible -v /tmp/myhostsfiles:/data -it mosheblumberg/mosheblumbergansible:ansible2.147CP7.6.0 
 ```
 
 Save docker image 
+
+```
 docker save  mosheblumberg/mosheblumbergansible > /tmp/mosheblumbergansible.tar
+```
 
 
+```
  docker load < /tmp/mosheblumbergansible.tar
+```
+
 
 # Discovery 
 
