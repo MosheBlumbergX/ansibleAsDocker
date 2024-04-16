@@ -10,6 +10,8 @@ Please change to the desired branch.
 [CP Ansible Docs](https://docs.confluent.io/ansible/current/overview.html)  
 [cp-ansible](https://github.com/confluentinc/cp-ansible)  
 [cp-discovery](https://github.com/confluentinc/cp-discovery)  
+[Docker Hub Images - Ready to use](https://hub.docker.com/r/mosheblumberg/mosheblumbergansible)   
+
 
 ## Reference  
 
