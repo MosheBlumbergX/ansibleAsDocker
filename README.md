@@ -64,7 +64,9 @@ Save docker image
 docker save  mosheblumberg/mosheblumbergansible > /tmp/mosheblumbergansible.tar
 ```
 
+```
  docker load < /tmp/mosheblumbergansible.tar
+```
 
 # Discovery 
 
