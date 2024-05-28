@@ -1,6 +1,8 @@
 FROM --platform=linux/amd64 ubuntu:jammy
 
-ARG  CP_VERSION=7.1.11
+ARG CP_VERSION=7.1.11
+ARG COMMUNITY_CRYPTO=2.20.0
+
 
 # Copy Python dependency file inside container, then install dependencies using pip.
 COPY requirements.txt .
@@ -20,10 +22,16 @@ RUN pip3 install --upgrade pip; \
 RUN git clone https://github.com/confluentinc/cp-discovery.git /home/
 
 RUN ansible-galaxy collection install confluent.platform:${CP_VERSION};\
-    ansible-galaxy collection install ansible.posix; 
+    ansible-galaxy collection install ansible.posix; \
+    ansible-galaxy collection install community.crypto:${COMMUNITY_CRYPTO}; 
 
 RUN ansible-galaxy collection install community-general-7.5.6.tar.gz
 
 COPY testansiblelocal.yml .
 COPY readmeDocker.md .
 COPY touchauthorized_keys.yml .
+
+
+
+
+
