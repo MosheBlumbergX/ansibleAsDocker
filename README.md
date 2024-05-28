@@ -82,3 +82,17 @@ PYTHONPATH=. python3 discovery/main.py \
 * [how-to-build-and-execute-ansible-automation-with-docker](https://www.cbtnuggets.com/blog/technology/devops/how-to-build-and-execute-ansible-automation-with-docker)
   * [git](https://www.cbtnuggets.com/blog/technology/devops/how-to-build-and-execute-ansible-automation-with-docker)
 
+
+## Notes
+
+We're using the `community-general-7.5.6.tar.gz` in this docker build due to the conflict in ansible version and galaxy install:
+
+```log
+17.50 Starting galaxy collection install process
+17.50 Process install dependency map
+18.89 to see the full traceback, use -vvv
+18.89 ERROR! Unexpected Exception, this is probably a bug: '/api/v3/plugin/ansible/content/published/collections/index/community/general/versions/'
+```
+
+
+
