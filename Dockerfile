@@ -1,10 +1,11 @@
 FROM --platform=linux/amd64 ubuntu:jammy
 
 ARG  CP_VERSION=7.5.3
+ARG COMMUNITY_CRYPTO=2.20.0
+ARG COMMUNITY_GENERAL=8.6.1
 
 # Copy Python dependency file inside container, then install dependencies using pip.
 COPY requirements.txt .
-COPY community-general-7.5.6.tar.gz .
 
 RUN apt-get update; \
     apt -y install sshpass; \
@@ -20,9 +21,9 @@ RUN pip3 install --upgrade pip; \
 RUN git clone https://github.com/confluentinc/cp-discovery.git /home/
 
 RUN ansible-galaxy collection install confluent.platform:${CP_VERSION};\
-    ansible-galaxy collection install ansible.posix; 
-
-RUN ansible-galaxy collection install community-general-7.5.6.tar.gz
+    ansible-galaxy collection install ansible.posix; \
+    ansible-galaxy collection install community.crypto:${COMMUNITY_CRYPTO}; \ 
+    ansible-galaxy collection install community.general:${COMMUNITY_GENERAL}; 
 
 COPY testansiblelocal.yml .
 COPY readmeDocker.md .
