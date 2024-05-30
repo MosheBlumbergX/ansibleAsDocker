@@ -5,8 +5,9 @@ Create docker image to use for cp ansible
 
 
 ```
-export VERSION=7.4.3
-docker build --build-arg VERSION=$VERSION -t mosheblumberg/mosheblumbergansible:ansible2.147CP$VERSION .
+export VERSION=x.x.x
+export ANSIBLE_VERSION=2.14
+docker build --build-arg VERSION=$VERSION -t mosheblumberg/mosheblumbergansible:ansible$ANSIBLE_VERSIONCP$VERSION .
 ```
 
 Note the `.` (dot) at the end of command which denotes that Dockerfile is in current directory.
@@ -20,7 +21,7 @@ docker image ls mosheblumberg/mosheblumbergansible
 Run Ansible inside a docker container
 
 ```
-docker run --name cpansible -it mosheblumberg/mosheblumbergansible:ansible2.147CP$VERSION
+docker run --name cpansible -it mosheblumberg/mosheblumbergansible:ansible$ANSIBLE_VERSIONCP$VERSION
 ansible --version
 ```
 
@@ -29,7 +30,7 @@ Push your Ansible image to Docker Hub
 
 ```
 docker login
-docker push mosheblumberg/mosheblumbergansible:ansible2.147CP$VERSION
+docker push mosheblumberg/mosheblumbergansible:ansible$ANSIBLE_VERSIONCP$VERSION
 docker tag mosheblumberg/mosheblumbergansible mosheblumberg/mosheblumbergansible:rc1
 docker image ls mosheblumberg/mosheblumbergansible
 docker push mosheblumberg/mosheblumbergansible:rc1
@@ -45,7 +46,7 @@ ansible-playbook -i localhost testansiblelocal.yml
 
 Scan image  
 ```
- docker scan mosheblumberg/mosheblumbergansible:ansible2.147CP$VERSION
+ docker scan mosheblumberg/mosheblumbergansible:ansible$ANSIBLE_VERSIONCP$VERSION
 ```
 
 Run the image with the attached directory 
@@ -54,7 +55,7 @@ Run the image with the attached directory
 ```
 mkdir /tmp/myhostsfiles
 touch /tmp/myhostsfiles/hosts.yml
-docker run --name cpansible -v /tmp/myhostsfiles:/data -it mosheblumberg/mosheblumbergansible:ansible2.147CP$VERSION 
+docker run --name cpansible -v /tmp/myhostsfiles:/data -it mosheblumberg/mosheblumbergansible:ansible$ANSIBLE_VERSIONCP$VERSION 
 ```
 
 Save docker image 
