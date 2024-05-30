@@ -5,7 +5,7 @@ Create docker image to use for cp ansible
 
 
 ```
-export VERSION=x.x.x
+export VERSION=7.3.7
 docker build --build-arg VERSION=$VERSION -t mosheblumberg/mosheblumbergansible:ansible2.147CP$VERSION .
 ```
 
