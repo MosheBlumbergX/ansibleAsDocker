@@ -13,7 +13,7 @@ jobs:
       ANSIBLE_VERSION: 2.14.2
     steps:
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: build  
           
