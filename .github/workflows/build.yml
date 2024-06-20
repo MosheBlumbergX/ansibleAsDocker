@@ -12,17 +12,17 @@ jobs:
       VERSION: 7.6.1
       ANSIBLE_VERSION: 2.14.2
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-        with:
-          ref: build  
+      # - name: Check out repository
+      #   uses: actions/checkout@v4
+      #   with:
+      #     ref: build  
           
-      - name: Update requirements.txt with Ansible version
-        run: |
-          sed -i "s/^ansible-core==.*/ansible-core==${{ env.ANSIBLE_VERSION }}/" requirements.txt
+      # - name: Update requirements.txt with Ansible version
+      #   run: |
+      #     sed -i "s/^ansible-core==.*/ansible-core==${{ env.ANSIBLE_VERSION }}/" requirements.txt
 
-      - name: Verify requirements.txt
-        run: cat requirements.txt
+      # - name: Verify requirements.txt
+      #   run: cat requirements.txt
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v3
