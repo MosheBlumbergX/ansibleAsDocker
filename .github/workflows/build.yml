@@ -12,19 +12,9 @@ jobs:
       VERSION: 7.6.1
       ANSIBLE_VERSION: 2.14.2
     steps:
-      - name: List files in the repository root
-        run: ls -la
-
-      - name: Verify requirements.txt exists
-        run: |
-          if [ ! -f requirements.txt ]; then
-            echo "requirements.txt not found in the root directory"
-            exit 1
-          fi
-
       - name: Update requirements.txt with Ansible version
         run: |
-          sed -i "s/^ansible-core==.*/ansible-core==${{ env.ANSIBLE_VERSION }}/" requirements.txt
+          sed -i "s/^ansible-core==.*/ansible-core==${{ env.ANSIBLE_VERSION }}/" ../requirements.txt
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v3
