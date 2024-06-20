@@ -1,6 +1,27 @@
 # ansibleAsDocker
 
 
+
+
+
+Change version of CP in [.github/workflows/build.yml](.github/workflows/build.yml)
+Change version of Ansible in [requirements.txt](requirements.txt)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Create docker image to use for cp ansible 
 
 

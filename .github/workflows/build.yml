@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       VERSION: 7.6.1
-      ANSIBLE_VERSION: 2.14.2
+      ANSIBLE_VERSION: 2.14
     steps:
       # - name: Check out repository
       #   uses: actions/checkout@v4
