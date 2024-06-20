@@ -88,5 +88,3 @@ PYTHONPATH=. python3 discovery/main.py \
   * [git](https://www.cbtnuggets.com/blog/technology/devops/how-to-build-and-execute-ansible-automation-with-docker)
 
 
-
-nl
