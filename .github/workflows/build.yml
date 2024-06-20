@@ -10,8 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     env:
       VERSION: 7.6.1
-      ANSIBLE_VERSION: 2.14
+      ANSIBLE_VERSION: 2.14.2
     steps:
+      - name: Update requirements.txt with Ansible version
+        run: |
+          sed -i "s/^ansible-core==.*/ansible-core==${{ env.ANSIBLE_VERSION }}/" requirements.txt
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v3

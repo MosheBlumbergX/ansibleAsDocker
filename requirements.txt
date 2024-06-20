@@ -1,4 +1,4 @@
-ansible-core==2.14.2
+ansible-core==2.14.1
 ansible-pylibssh
 PyYaml==6.0
 jproperties
