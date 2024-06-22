@@ -5,7 +5,13 @@ A repository to host a docker image with:
 * CP-Ansible
 * Discovery Service for migration between manual and automated install
 
-Please change to the desired branch. 
+
+This Repo checks every night (3am) for the latest cp-ansible release , build or rebuild the image and pushes it to Docker Hub
+Once a new release is out, it will be build the image and pushes it to Docker Hub on the next schedule. 
+
+
+
+You can Also change to the desired branch if needed. 
 
 [CP Ansible Docs](https://docs.confluent.io/ansible/current/overview.html)  
 [cp-ansible](https://github.com/confluentinc/cp-ansible)  
