@@ -12,7 +12,7 @@ jobs:
       - name: Check last branch
         id: get_version
         run: |
-          VERSION=$(curl -s https://api.github.com/repos/confluentinc/cp-ansible/releases | jq -r '.[].tag_name' | sed 's/^v//' | sort | tail -n 2 | head -n 1)
+          VERSION=$(curl -s https://api.github.com/repos/confluentinc/cp-ansible/releases | jq -r '.[].tag_name' | sed 's/^v//' | sort | tail -n 1)
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Set up QEMU
