@@ -1,0 +1,23 @@
+name: Schedule Trigger
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Non-Default Branch Workflow
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
+            await octokit.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'maintenance.yml',
+              ref: 'build'  # Replace 'non-default-branch' with the actual branch name
+            });
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
