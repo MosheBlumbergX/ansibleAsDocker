@@ -22,7 +22,7 @@ jobs:
               const response = await github.rest.actions.createWorkflowDispatch({
                 owner: owner,
                 repo: repo,
-                workflow_id: 'maintenance.yml',
+                workflow_id: 'build.yml',
                 ref: 'build'  # Replace 'build' with the actual branch name if different
               });
               console.log('Dispatch response:', response);
