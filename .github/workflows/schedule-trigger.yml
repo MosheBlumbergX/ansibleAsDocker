@@ -3,6 +3,9 @@ name: Schedule Trigger
 on:
   schedule:
     - cron: '*/5 * * * *'
+  push:
+    branches:
+      - main  # Replace with your default branch name
 
 jobs:
   trigger:
