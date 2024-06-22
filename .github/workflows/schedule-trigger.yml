@@ -20,7 +20,7 @@ jobs:
               owner,
               repo,
               workflow_id: 'maintenance.yml',
-              ref: 'build'  # Replace 'non-default-branch' with the actual branch name
+              ref: 'build'  # Using 'build' as the branch name
             });
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
