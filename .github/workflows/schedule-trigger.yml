@@ -8,7 +8,6 @@ on:
       - main  # Replace with your default branch name
   workflow_dispatch:
 
-
 jobs:
   trigger:
     runs-on: ubuntu-latest
@@ -24,7 +23,7 @@ jobs:
               const response = await github.rest.actions.createWorkflowDispatch({
                 owner: owner,
                 repo: repo,
-                workflow_id: 'build.yml',  # Ensure this matches the workflow file name
+                workflow_id: 'maintenance.yml',  # Ensure this matches the workflow file name
                 ref: 'build'  # Ensure this matches the target branch
               });
               console.log('Dispatch response:', response);
