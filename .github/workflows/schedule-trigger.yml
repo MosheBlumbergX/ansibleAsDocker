@@ -17,10 +17,10 @@ jobs:
           script: |
             const { owner, repo } = context.repo;
             await github.rest.actions.createWorkflowDispatch({
-              owner,
-              repo,
+              owner: owner,
+              repo: repo,
               workflow_id: 'maintenance.yml',
-              ref: 'build'  # Using 'build' as the branch name
+              ref: 'build'  # Replace 'build' with the actual branch name if different
             });
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
