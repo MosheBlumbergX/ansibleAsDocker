@@ -15,12 +15,12 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
-            await octokit.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
+            const { owner, repo } = context.repo;
+            await github.rest.actions.createWorkflowDispatch({
+              owner,
+              repo,
               workflow_id: 'maintenance.yml',
-              ref: 'non-default-branch'  # Replace 'non-default-branch' with the actual branch name
+              ref: 'build'  # Replace 'non-default-branch' with the actual branch name
             });
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
