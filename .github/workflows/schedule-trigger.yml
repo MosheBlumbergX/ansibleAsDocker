@@ -1,25 +1,17 @@
-name: Schedule Trigger
+name: Test Trigger
 
 on:
-  schedule:
-    - cron: '*/5 * * * *'
-  push:
-    branches:
-      - main  # Replace with your default branch name
+  workflow_dispatch:
 
 jobs:
-  trigger:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger Non-Default Branch Workflow
+      - name: Test GitHub Script
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+            console.log('This is a test');
             const { owner, repo } = context.repo;
-            await github.rest.actions.createWorkflowDispatch({
-              owner,
-              repo,
-              workflow_id: 'maintenance.yml',
-              ref: 'build'  # Replace 'build' with the actual branch name if different
-            });
+            console.log(`Owner: ${owner}, Repo: ${repo}`);
