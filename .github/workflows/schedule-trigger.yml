@@ -3,9 +3,6 @@ name: Schedule Trigger
 on:
   schedule:
     - cron: '5 3 * * *'  # At 03:05am every day
-  push:
-    branches:
-      - main  # Replace with your default branch name
   workflow_dispatch:
 
 
