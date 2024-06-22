@@ -6,8 +6,6 @@ on:
   push:
     branches:
       - main  # Replace with your default branch name
-  workflow_dispatch:
-
 
 jobs:
   trigger:
@@ -16,7 +14,7 @@ jobs:
       - name: Trigger Non-Default Branch Workflow
         uses: actions/github-script@v7
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           script: |
             const { owner, repo } = context.repo;
             console.log(`Owner: ${owner}, Repo: ${repo}`);
@@ -24,8 +22,8 @@ jobs:
               const response = await github.rest.actions.createWorkflowDispatch({
                 owner: owner,
                 repo: repo,
-                workflow_id: 'build.yml',
-                ref: 'build'  # Replace 'build' with the actual branch name if different
+                workflow_id: 'build.yml',  # Ensure this matches the workflow file name
+                ref: 'build'  # Ensure this matches the target branch
               });
               console.log('Dispatch response:', response);
             } catch (error) {
