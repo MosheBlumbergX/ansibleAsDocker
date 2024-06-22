@@ -6,7 +6,6 @@ on:
   push:
     branches:
       - main  # Replace with your default branch name
-  workflow_dispatch:
 
 jobs:
   trigger:
@@ -19,10 +18,14 @@ jobs:
           script: |
             const { owner, repo } = context.repo;
             console.log(`Owner: ${owner}, Repo: ${repo}`);
-            const response = await github.rest.actions.createWorkflowDispatch({
-              owner: owner,
-              repo: repo,
-              workflow_id: 'maintenance.yml',
-              ref: 'build'  # Replace 'build' with the actual branch name if different
-            });
-            console.log('Dispatch response:', response);
+            try {
+              const response = await github.rest.actions.createWorkflowDispatch({
+                owner: owner,
+                repo: repo,
+                workflow_id: 'maintenance.yml',
+                ref: 'build'  # Replace 'build' with the actual branch name if different
+              });
+              console.log('Dispatch response:', response);
+            } catch (error) {
+              console.log('Error:', error);
+            }
