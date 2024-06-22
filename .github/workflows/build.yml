@@ -12,6 +12,7 @@ jobs:
         run: |
           VERSION=$(curl -s https://api.github.com/repos/confluentinc/cp-ansible/releases | jq -r '.[].tag_name' | sed 's/^v//' | sort | tail -n 2 | head -n 1)
           echo "VERSION=$VERSION" >> $GITHUB_ENV
+          ANSIBLE_VERSION: 2.14
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
