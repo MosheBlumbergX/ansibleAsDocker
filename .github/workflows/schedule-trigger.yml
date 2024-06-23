@@ -2,7 +2,7 @@ name: Schedule Trigger
 
 on:
   schedule:
-    - cron: '5 3 * * *'  # At 03:05am every day
+    - cron: '5 0 * * *'  # Adjusted for UTC+3 to run at 03:05am local time every day
   workflow_dispatch:
 
 
@@ -10,6 +10,11 @@ jobs:
   trigger:
     runs-on: ubuntu-latest
     steps:
+    
+      - name: Echo my Date
+        run: |
+          echo "Invoke from main on $(date)"
+          
       - name: Trigger Non-Default Branch Workflow via API
         env:
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
