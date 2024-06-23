@@ -9,6 +9,10 @@ jobs:
     env:
       ANSIBLE_VERSION: 2.14
     steps:
+      - name: Echo my Date
+        run: |
+          echo "Invoke from main on $(date)"
+          
       - name: Check last branch
         id: get_version
         run: |
