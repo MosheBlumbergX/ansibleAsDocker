@@ -10,4 +10,4 @@ jobs:
     steps:
       - name: Echo my Date
         run: |
-          date
+          Echo "Invoke from main" on " " date
