@@ -27,6 +27,4 @@ You can Also change to the desired branch if needed.
   * [git](https://www.cbtnuggets.com/blog/technology/devops/how-to-build-and-execute-ansible-automation-with-docker)
 
 
-nl
-
 
