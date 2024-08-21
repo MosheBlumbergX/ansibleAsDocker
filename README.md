@@ -25,8 +25,5 @@ You can Also change to the desired branch if needed.
 * [Ansible Docker](https://hackmd.io/@the-ansible-book/B1y5tXers)
 * [how-to-build-and-execute-ansible-automation-with-docker](https://www.cbtnuggets.com/blog/technology/devops/how-to-build-and-execute-ansible-automation-with-docker)
   * [git](https://www.cbtnuggets.com/blog/technology/devops/how-to-build-and-execute-ansible-automation-with-docker)
+ 
 
-
-
-nl
-nl
